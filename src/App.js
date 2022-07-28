@@ -1,15 +1,18 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { fetchTeamsStartAsync } from './redux/team/team.actions';
+import { fetchTeamsStartAsync, setTeamPlayersStartAsync } from './redux/team/team.actions';
 
 function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchTeamsStartAsync('2022'));
+    // dispatch(fetchTeamsStartAsync('2022'));
+    // setTimeout(() => {
+    //   dispatch(setTeamPlayersStartAsync(47, '2021'));
+    // }, 2000);
     // const teams = getTeamsFromPremiereLeagueBySeason('2021');
     // console.log(teams);
-    // fetch('https://v3.football.api-sports.io/players?team=36&season=2021', {
+    // fetch('https://v3.football.api-sports.io/players?team=47&season=2021', {
     //   method: 'GET',
     //   headers: {
     //     'x-rapidapi-host': 'v3.football.api-sports.io',
