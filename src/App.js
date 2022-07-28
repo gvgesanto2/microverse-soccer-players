@@ -1,39 +1,14 @@
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { fetchTeamsStartAsync, setTeamPlayersStartAsync } from './redux/team/team.actions';
+import { Route, Routes } from 'react-router-dom';
+import Header from './components/header/header.component';
+import Homepage from './pages/homepage/homepage.component';
 
 function App() {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    // dispatch(fetchTeamsStartAsync('2022'));
-    // setTimeout(() => {
-    //   dispatch(setTeamPlayersStartAsync(47, '2021'));
-    // }, 2000);
-    // const teams = getTeamsFromPremiereLeagueBySeason('2021');
-    // console.log(teams);
-    // fetch('https://v3.football.api-sports.io/players?team=47&season=2021', {
-    //   method: 'GET',
-    //   headers: {
-    //     'x-rapidapi-host': 'v3.football.api-sports.io',
-    //     'x-rapidapi-key': '079a852733bca06c231fa32314cb357b',
-    //   },
-    // }).then((response) => response.json())
-    //   .then((data) => { console.log(data); })
-    //   .catch((error) => { console.log(error); });
-    // fetch('https://v3.football.api-sports.io/teams?league=39&season=2022', {
-    //   method: 'GET',
-    //   headers: {
-    //     'x-rapidapi-host': 'v3.football.api-sports.io',
-    //     'x-rapidapi-key': '079a852733bca06c231fa32314cb357b',
-    //   },
-    // }).then((response) => response.json())
-    //   .then((data) => { console.log(data); })
-    //   .catch((error) => { console.log(error); });
-  }, []);
-
   return (
-    <div>Hi</div>
+    <Routes>
+      <Route path="/" element={<Header />}>
+        <Route index element={<Homepage />} />
+      </Route>
+    </Routes>
   );
 }
 

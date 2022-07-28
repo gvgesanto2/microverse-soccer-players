@@ -1,21 +1,25 @@
 :root {
-  // Color Pallete
-  --color-grey-50: #fafafa;
-  --color-primary-200: #0290ff;
-  --color-primary-300: #1a73e8;
-  --color-grey-150: #eee;
-  --color-grey-200: #ddd;
-  --color-grey-250: #ccc;
-  --color-grey-500: #757575;
-  --color-grey-800: #272a32;
-  --color-grey-900: #121212;
-  --color-white: #fff;
-  --color-red-200: #dc3545;
+    // Color Pallete
+    --color-grey-150: #e7e5e5;
+    --color-primary-300: #ffa500;
+    --color-grey-200: #e1e1e6;
+    --color-grey-350: #ccc;
+    --color-grey-600: #606060;
+    --color-grey-700: #424145;
+    --color-grey-800: #272a32;
+    --color-grey-900: #121214;
+    --color-white: #fff;
 
-  // Other color variables
-  --color-primary: var(--color-primary-200);
-  --color-text: var(--color-grey-900);
+    // Other color variables
+    --color-primary: var(--color-primary-300);
+    --color-bg-header: var(--color-grey-800);
 
-  // Other variables
-  --header-height: 8rem;
+    // Other variables
+    --calculator-row-height: 4rem;
+
+    // Header
+    --header-height: 7rem;
+
+    // Main Content
+    --main-content-max-width: 160rem;
 }
