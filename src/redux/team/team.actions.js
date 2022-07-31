@@ -1,5 +1,8 @@
 /* eslint-disable implicit-arrow-linebreak */
-import { getPlayersFromTeamBySeason, getTeamsFromPremiereLeagueBySeason } from '../../services/api.service';
+import {
+  getPlayersFromTeamBySeason,
+  getTeamsFromPremiereLeagueBySeason,
+} from '../../services/api.service';
 import { createAction } from '../../utils/reducer.utils';
 import { TEAM_ACTION_TYPES } from './team.types';
 import { parsePlayersDataFromApi, parseTeamsDataFromApi } from './team.utils';
@@ -41,6 +44,12 @@ export const setTeamPlayersSuccess = (teamId, playersArray) =>
 export const setTeamPlayersFailure = (error) =>
   createAction(TEAM_ACTION_TYPES.SET_TEAM_PLAYERS_FAILURE, error);
 
+export const setSelectedTeam = (teamId) =>
+  createAction(TEAM_ACTION_TYPES.SET_SELECTED_TEAM, teamId);
+
+export const setFilteredPlayers = (filteredPlayers) =>
+  createAction(TEAM_ACTION_TYPES.SET_FILTERED_PLAYERS, filteredPlayers);
+
 export const setTeamPlayersStartAsync = (teamId, season) => async (dispatch) => {
   dispatch(setTeamPlayersStart());
 
@@ -49,7 +58,11 @@ export const setTeamPlayersStartAsync = (teamId, season) => async (dispatch) => 
     const playersArray = parsePlayersDataFromApi(playersFromApi);
 
     dispatch(setTeamPlayersSuccess(teamId, playersArray));
+    dispatch(setSelectedTeam(teamId));
   } catch (error) {
     dispatch(setTeamPlayersFailure(error));
   }
 };
+
+export const setSeason = (season) =>
+  createAction(TEAM_ACTION_TYPES.SET_SEASON, season);

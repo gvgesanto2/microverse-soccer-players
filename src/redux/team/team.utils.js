@@ -1,6 +1,9 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable implicit-arrow-linebreak */
 
+import { sortObjectsArray } from '../../utils/array.utils';
+import { getObjectValueByString } from '../../utils/object.utils';
+
 export const parseTeamsDataFromApi = (teamsData) =>
   teamsData.map(({
     team: {
@@ -69,6 +72,7 @@ export const parsePlayersDataFromApi = (playersData) =>
         age,
         nationality,
         photo,
+        name,
         firstname,
         lastname,
         height,
@@ -78,6 +82,7 @@ export const parsePlayersDataFromApi = (playersData) =>
       statistics,
     }) => ({
       id,
+      name,
       fullName: `${firstname} ${lastname}`,
       age,
       nationality,
@@ -97,3 +102,35 @@ export const setTeamPlayersById = (teamsArray, teamId, playersArray) =>
     }
     return { ...team, players: playersArray };
   });
+
+export const removeTeamPlayersWithNoMetric = (players, metricPathStr) =>
+  players.filter(
+    (player) => getObjectValueByString(player, metricPathStr) > 0,
+  );
+
+export const filterTeamPlayersByPosition = (players, positionToFilter) =>
+  players.filter(({ position }) => position === positionToFilter);
+
+export const filterTeamPlayersByOption = (players, option) => {
+  const positionOptions = ['Attacker', 'Defender', 'Midfielder', 'Goalkeeper'];
+  const metricOptions = ['goals', 'assists', 'cards.yellow', 'cards.red'];
+
+  if (positionOptions.includes(option)) {
+    return filterTeamPlayersByPosition(players, option);
+  }
+
+  if (metricOptions.includes(option)) {
+    const metricPathStr = `stats.total.${option}`;
+    const filteredPlayers = removeTeamPlayersWithNoMetric(
+      players,
+      metricPathStr,
+    );
+
+    return sortObjectsArray(filteredPlayers, metricPathStr, true);
+  }
+
+  return players;
+};
+
+export const findTeamPlayersById = (teams, teamId) =>
+  teams.find(({ id }) => id === teamId).players;

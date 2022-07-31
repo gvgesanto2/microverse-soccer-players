@@ -1,14 +1,16 @@
 import { TEAM_ACTION_TYPES } from './team.types';
-import { setTeamPlayersById } from './team.utils';
+import { findTeamPlayersById, setTeamPlayersById } from './team.utils';
 
-const INITIAL_STATE = {
-  season: '',
+const initialState = {
+  season: '2022',
+  selectedTeam: null,
+  filteredPlayers: [],
   teamsArray: [],
   isLoading: false,
   error: null,
 };
 
-export default function teamReducer(state = INITIAL_STATE, { type, payload }) {
+export default function teamReducer(state = initialState, { type, payload }) {
   switch (type) {
     case TEAM_ACTION_TYPES.FETCH_TEAMS_START:
     case TEAM_ACTION_TYPES.SET_TEAM_PLAYERS_START:
@@ -39,6 +41,22 @@ export default function teamReducer(state = INITIAL_STATE, { type, payload }) {
         ...state,
         isLoading: false,
         error: payload,
+      };
+    case TEAM_ACTION_TYPES.SET_SELECTED_TEAM:
+      return {
+        ...state,
+        filteredPlayers: findTeamPlayersById(state.teamsArray, payload),
+        selectedTeam: payload,
+      };
+    case TEAM_ACTION_TYPES.SET_SEASON:
+      return {
+        ...initialState,
+        season: payload,
+      };
+    case TEAM_ACTION_TYPES.SET_FILTERED_PLAYERS:
+      return {
+        ...state,
+        filteredPlayers: payload,
       };
     default:
       return state;

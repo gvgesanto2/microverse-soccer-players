@@ -7,7 +7,9 @@ $nav-link-border-height: 2px;
   width: 100%;
   height: var(--header-height);
   background-color: var(--color-bg-header);
-  color: var(--color-white);
+  box-shadow: var(--color-grey-900) 0px 1.6rem 2rem;
+  // color: var(--color-white);
+  z-index: 100;
 
   &__content {
     display: flex;
@@ -20,10 +22,16 @@ $nav-link-border-height: 2px;
   }
 
   &__logo {
+    display: flex;
+    align-items: center;
+  }
+
+  &__logo-text {
     font-size: 2.4rem;
     font-weight: 700;
     text-transform: capitalize;
     -webkit-font-smoothing: antialiased;
+    margin-left: 0.8rem;
   }
 
   &__nav {

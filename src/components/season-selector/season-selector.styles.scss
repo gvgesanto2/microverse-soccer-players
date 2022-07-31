@@ -1,0 +1,34 @@
+.season-selector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media only screen and (min-width: 75em) {
+    flex-direction: row;
+  }
+
+  &__title {
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin-bottom: 1.2rem;
+
+    @media only screen and (min-width: 48em) {
+      margin-bottom: 0.8rem;
+    }
+
+    @media only screen and (min-width: 75em) {
+      margin: 0 0.8rem 0 0;
+    }
+  }
+
+  &__input {
+    font-size: 1.4rem;
+    border: none;
+    border-radius: 100px;
+    background-color: var(--color-primary-400);
+    color: inherit;
+    outline: none;
+    padding: 0.8rem;
+    cursor: pointer;
+  }
+}

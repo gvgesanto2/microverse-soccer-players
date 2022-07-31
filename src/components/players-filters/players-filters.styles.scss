@@ -1,0 +1,38 @@
+.players-filters {
+  display: flex;
+
+  & > *:not(:last-child) {
+    margin-right: 1.2rem;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 3.2rem;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 2rem;
+    letter-spacing: .2px;
+    text-transform: capitalize;
+    background-color: var(--color-grey-750);
+    color: inherit;
+    border: none;
+    border-radius: 100px;
+    padding: 0 1.2rem;
+    white-space: nowrap;
+    // cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover {
+      filter: brightness(1.1);
+    }
+
+    &:active,
+    &--active {
+      background-color: var(--color-primary);
+      color: var(--color-white);
+    }
+  }
+}
+
