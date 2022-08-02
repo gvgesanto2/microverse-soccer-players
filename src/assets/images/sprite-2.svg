@@ -2,9 +2,6 @@
   <symbol xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" id="chevron-right">
     <polyline points="9 18 15 12 9 6"></polyline>
   </symbol>
-  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1496 270" id="players-bg">
-    <path d="M1496 6.3c-194.1 93.7-427.6 160.3-645.2 183.2L993.8 46C884.6 66.3 806.4 69.9 691.4 69.9c-66.4 0-129.7-3.4-192-10.1s-123.6-16.9-186-30.3L342.7 0H0v67.3c68.3 26.5 138.4 49.4 208.5 67.5l-85.1 85.5C184.5 240 249.3 256.5 316 270h1180V6.3z" fill-rule="evenodd" clip-rule="evenodd"></path>
-  </symbol>
   <symbol version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" xml:space="preserve" viewBox="0 0 131.1 166.7" id="pl-logo">
     <path d="M28.8,18.8c6.8,3.2,11.3,7.1,12.1,7.7c-0.3-1.8-1.7-10.3-2.6-15.5c3.9,2.7,13.3,9.2,16.3,11.3
                 C55.8,18.5,60.2,6,60.2,6s7.8,12.5,9,14.6C70.9,19,80.1,8.6,82.5,6c0.5,5.9,0.9,14.5,1.1,15.7c0.5-0.6,4.1-5.6,10-10.3
