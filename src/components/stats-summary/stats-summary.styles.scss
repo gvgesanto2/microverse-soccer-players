@@ -1,0 +1,44 @@
+.stats-summary {
+  display: flex;
+  border: var(--separator-line--md);
+  border-radius: 0.8rem;
+
+  & > li:first-child {
+    border-top-left-radius: 0.8rem;
+    border-bottom-left-radius: 0.8rem;
+  }
+
+  & > li:last-child {
+    border-top-right-radius: 0.8rem;
+    border-bottom-right-radius: 0.8rem;
+  }
+
+  & > li:not(:last-child) {
+    border-right: var(--separator-line--md);
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: var(--color-grey-775);
+    padding: 1rem 1.6rem;
+  }
+
+  &__title {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    font-weight: 500;
+    // font-size: 1.4rem;
+    // font-weight: 700;
+    margin-top: 0.4rem;
+  }
+
+  &__value {
+    font-size: 2.4rem;
+    font-weight: 400;
+  }
+}

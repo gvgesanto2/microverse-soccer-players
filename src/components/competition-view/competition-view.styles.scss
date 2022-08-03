@@ -1,0 +1,43 @@
+.competition-view {
+  background-color: var(--color-grey-800);
+  border-radius: 0.8rem;
+  padding: 2rem;
+
+  &__header {
+    margin-bottom: 2.4rem;
+  }
+
+  &__title {
+    width: 100%;
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-align: center;
+    padding: 0 2rem;
+
+    @media only screen and (min-width: 48em) {
+      width: auto;
+      position: relative;
+      text-align: start;
+      padding-left: 1.2rem;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 3px;
+        background-color: var(--color-primary);
+        border-radius: 100px;
+      }
+    }
+  }
+
+  &__list {
+    display: flex;
+
+    & > li:not(:last-child) {
+      margin-right: 1.2rem;
+    }
+  }
+}

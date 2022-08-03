@@ -5,7 +5,7 @@ export const api = axios.create({
   baseURL: 'https://v3.football.api-sports.io',
   headers: {
     'x-rapidapi-host': 'v3.football.api-sports.io',
-    // 'x-rapidapi-key': '61755956a03583dbec78e118c9d5fb77',
+    'x-rapidapi-key': '61755956a03583dbec78e118c9d5fb77',
   },
 });
 
