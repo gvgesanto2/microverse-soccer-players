@@ -115,9 +115,6 @@
 
   &__right {
     flex: 1;
-    height: 50rem;
-
-    // background-color: blue;
   }
 }
 
@@ -357,5 +354,119 @@
       border-radius: 100px;
       margin: 0;
     }
+  }
+
+  &__center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 2px solid var(--color-grey-900);
+    border-bottom: 2px solid var(--color-grey-900);
+    padding: 1.2rem 2rem;
+    margin-bottom: 2.4rem
+  }
+
+  &__summary {
+    display: flex;
+    border: var(--separator-line--sm);
+
+    & > li:not(:last-child) {
+      border-right: var(--separator-line--sm);
+    }
+  }
+
+  &__summary-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: var(--color-grey-775);
+    padding: 1rem 2rem;
+  }
+
+  &__summary-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+  }
+
+  &__summary-value {
+    font-size: 2.4rem;
+    font-weight: 400;
+  }
+
+  &__bottom {
+    padding: 0 2rem 2rem;
+  }
+}
+
+.stats-list {
+  // display: flex;
+  // flex-wrap: wrap;
+  // gap: 2.4rem;
+
+  // & > li {
+  //   flex: 0 0 calc(50% - 1.2rem);
+  // }
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2.4rem;
+}
+
+.stats-block {
+  border: var(--separator-line--sm);
+  border-radius: 0.8rem;
+  // border-bottom-left-radius: 0.3rem;
+  // border-bottom-right-radius: 0.3rem;
+  // background-color: var(--color-grey-775);
+
+  &::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(270deg, rgb(33, 45, 110), var(--color-primary));
+    border-top-left-radius: 1.6rem;
+    border-top-right-radius: 1.6rem;
+    // margin: 2.4rem 0 1.6rem;
+  }
+
+  & > li:not(:last-child) {
+    border-bottom: var(--separator-line--sm);
+  }
+
+  & > li:nth-child(odd) {
+    background-color: var(--color-grey-775);
+    background-color: var(--color-grey-750);
+  }
+  & > li:nth-child(even) {
+    background-color: var(--color-grey-750);
+    background-color: var(--color-grey-775);
+  }
+
+  &__header {
+    font-size: 1.6rem;
+    font-weight: 500;
+    // background-color: var(--color-grey-700);
+    padding: 1.8rem 1.2rem;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.4rem;
+    padding: 1.2rem;
+  }
+
+  &__stat {
+    font-weight: 400;
+  }
+
+  &__value {
+    font-weight: 500;
+    color: var(--color-white);
   }
 }

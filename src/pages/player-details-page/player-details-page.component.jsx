@@ -115,6 +115,82 @@ export default function PlayerDetailsPage() {
                 <span className="stats-view__competition">premier league</span>
               </header>
 
+              <div className="stats-view__center">
+                <ul className="stats-view__summary">
+                  <li className="stats-view__summary-item">
+                    <h3 className="stats-view__summary-title">Appearences</h3>
+                    <span className="stats-view__summary-value">150</span>
+                  </li>
+                  <li className="stats-view__summary-item">
+                    <h3 className="stats-view__summary-title">Goals</h3>
+                    <span className="stats-view__summary-value">150</span>
+                  </li>
+                  <li className="stats-view__summary-item">
+                    <h3 className="stats-view__summary-title">Assists</h3>
+                    <span className="stats-view__summary-value">150</span>
+                  </li>
+                  <li className="stats-view__summary-item">
+                    <h3 className="stats-view__summary-title">Rating</h3>
+                    <span className="stats-view__summary-value">150</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="stats-view__bottom">
+                <ul className="stats-list">
+                  <li>
+                    <ul className="stats-block">
+                      <li className="stats-block__header">Attack</li>
+                      <li className="stats-block__item">
+                        <span className="stats-block__stat">Goals</span>
+                        <span className="stats-block__value">500</span>
+                      </li>
+                      <li className="stats-block__item">
+                        <span className="stats-block__stat">Goals</span>
+                        <span className="stats-block__value">500</span>
+                      </li>
+                      <li className="stats-block__item">
+                        <span className="stats-block__stat">Goals</span>
+                        <span className="stats-block__value">500</span>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <ul className="stats-block">
+                      <li className="stats-block__header">Attack</li>
+                      <li className="stats-block__item">
+                        <span className="stats-block__stat">Goals</span>
+                        <span className="stats-block__value">500</span>
+                      </li>
+                      <li className="stats-block__item">
+                        <span className="stats-block__stat">Goals</span>
+                        <span className="stats-block__value">500</span>
+                      </li>
+                      <li className="stats-block__item">
+                        <span className="stats-block__stat">Goals</span>
+                        <span className="stats-block__value">500</span>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <ul className="stats-block">
+                      <li className="stats-block__header">Attack</li>
+                      <li className="stats-block__item">
+                        <span className="stats-block__stat">Goals</span>
+                        <span className="stats-block__value">500</span>
+                      </li>
+                      <li className="stats-block__item">
+                        <span className="stats-block__stat">Goals</span>
+                        <span className="stats-block__value">500</span>
+                      </li>
+                      <li className="stats-block__item">
+                        <span className="stats-block__stat">Goals</span>
+                        <span className="stats-block__value">500</span>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
