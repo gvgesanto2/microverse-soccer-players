@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { selectFilteredPlayers } from '../../redux/team/team.selectors';
+import { selectFilteredPlayers } from '../../redux/player/player.selectors';
 import PlayerListItem from '../player-list-item/player-list-item.component';
 
 import './players-list.styles.scss';

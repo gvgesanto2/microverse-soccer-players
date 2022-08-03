@@ -2,15 +2,15 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
+import { fetchTeamPlayersStartAsync, setFilteredPlayers } from '../../redux/player/player.actions';
+import { selectTeamPlayers } from '../../redux/player/player.selectors';
+import { selectSelectedSeason } from '../../redux/season/season.selectors';
 
 import {
   setSelectedTeam,
-  setTeamPlayersStartAsync,
 } from '../../redux/team/team.actions';
 import {
-  selectSeason,
   selectSelectedTeam,
-  selectTeamPlayers,
 } from '../../redux/team/team.selectors';
 
 import './team-card.styles.scss';
@@ -19,15 +19,19 @@ export default function TeamCard({
   id, name, imgUrl, foundedYear,
 }) {
   const dispatch = useDispatch();
-  const season = useSelector(selectSeason);
+  const selectedSeason = useSelector(selectSelectedSeason);
   const players = useSelector((state) => selectTeamPlayers(state, id));
   const currSelectedTeamId = useSelector(selectSelectedTeam);
 
   const handleClick = () => {
-    if (players.length === 0) {
-      dispatch(setTeamPlayersStartAsync(id, season));
-    } else if (currSelectedTeamId !== id) {
+    if (currSelectedTeamId !== id) {
       dispatch(setSelectedTeam(id));
+    }
+
+    if (players.length === 0) {
+      dispatch(fetchTeamPlayersStartAsync(id, selectedSeason));
+    } else {
+      dispatch(setFilteredPlayers(players));
     }
   };
 

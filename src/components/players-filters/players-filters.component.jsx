@@ -2,20 +2,20 @@
 import { useEffect, useState } from 'react';
 import ScrollContainer from 'react-indiana-drag-scroll';
 import { useDispatch, useSelector } from 'react-redux';
-import { setFilteredPlayers } from '../../redux/team/team.actions';
+import { setFilteredPlayers } from '../../redux/player/player.actions';
 
 import {
   selectAttackerPlayers,
   selectDefenderPlayers,
   selectGoalkeeperPlayers,
   selectMidfielderPlayers,
-  selectSelectedTeam,
   selectTeamPlayers,
   selectMostAssistsPlayers,
   selectMostRedCardsPlayers,
   selectTopScorersPlayers,
   selectMostYellowCardsPlayers,
-} from '../../redux/team/team.selectors';
+} from '../../redux/player/player.selectors';
+import { selectSelectedTeam } from '../../redux/team/team.selectors';
 import PlayerFilterButton from '../player-filter-button/player-filter-button.component';
 
 import './players-filters.styles.scss';
@@ -47,7 +47,6 @@ const playersSelectors = [
 ];
 
 export default function PlayersFilters() {
-  console.log('START PLAYERS FILTERS !!!!!!');
   const [selectedFilterIndex, setSelectedFilterIndex] = useState(DEFAULT_FILTER_INDEX);
   const dispatch = useDispatch();
 

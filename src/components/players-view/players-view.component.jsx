@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
+import { selectFilteredPlayers } from '../../redux/player/player.selectors';
 import {
-  selectFilteredPlayers,
   selectSelectedTeam,
 } from '../../redux/team/team.selectors';
 

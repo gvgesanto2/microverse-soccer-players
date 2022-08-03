@@ -1,6 +1,8 @@
 import { useRef } from 'react';
 import { useDispatch } from 'react-redux';
-import { setSeason } from '../../redux/team/team.actions';
+import { resetPlayerReducerStore } from '../../redux/player/player.actions';
+import { setSelectedSeason } from '../../redux/season/season.actions';
+import { resetTeamReducerStore } from '../../redux/team/team.actions';
 import './season-selector.styles.scss';
 
 export default function SeasonSelector() {
@@ -10,14 +12,16 @@ export default function SeasonSelector() {
 
   for (let season = 2022; season >= 2010; season -= 1) {
     seasonOptionsArray.push(
-      <option value={String(season)}>
+      <option key={season} value={String(season)}>
         { `Season ${season}` }
       </option>,
     );
   }
 
   const handleChange = () => {
-    dispatch(setSeason(seasonInput.current.value));
+    dispatch(resetTeamReducerStore());
+    dispatch(resetPlayerReducerStore());
+    dispatch(setSelectedSeason(seasonInput.current.value));
   };
 
   return (
