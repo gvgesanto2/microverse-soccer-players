@@ -4,9 +4,14 @@
 import { sortObjectsArray } from '../../utils/array.utils';
 import { getObjectValueByString } from '../../utils/object.utils';
 
-const calculateTotalsFromStatsByLeague = (statsByLeague) =>
-  statsByLeague.reduce((totals, statsObj) => {
+const calculateTotalsFromStatsByLeague = (statsByLeague) => {
+  let numRatingsNotNull = 0;
+
+  const totalStats = statsByLeague.reduce((totals, statsObj) => {
     Object.entries(statsObj).forEach(([key, value]) => {
+      if (key === 'rating' && value > 0) {
+        numRatingsNotNull += 1;
+      }
       if (key === 'cards') {
         if (!totals[key]) {
           totals[key] = {};
@@ -21,6 +26,12 @@ const calculateTotalsFromStatsByLeague = (statsByLeague) =>
 
     return totals;
   }, {});
+
+  totalStats.rating /= numRatingsNotNull;
+  totalStats.rating = Number(totalStats.rating.toFixed(2));
+
+  return totalStats;
+};
 
 const parsePlayerStatsFromApi = (stats) => {
   const statsByLeague = stats.map(
@@ -39,6 +50,7 @@ const parsePlayerStatsFromApi = (stats) => {
       numGames: games.appearences === null ? 0 : games.appearences,
       shots: shots.total === null ? 0 : shots.total,
       tackles: tackles.total === null ? 0 : tackles.total,
+      rating: games.rating === null ? 0 : Number(Number(games.rating).toFixed(2)),
       league,
     }),
   );
@@ -70,6 +82,8 @@ export const parsePlayersDataFromApi = (playersData) =>
     }) => ({
       id,
       name,
+      firstName: firstname,
+      lastName: lastname,
       fullName: `${firstname} ${lastname}`,
       age,
       nationality,
@@ -79,13 +93,47 @@ export const parsePlayersDataFromApi = (playersData) =>
       birth,
       position: statistics[0].games.position,
       stats: parsePlayerStatsFromApi(statistics),
+      trophiesMap: null,
     }),
   );
 
-const removeTeamPlayersWithNoMetric = (players, metricPathStr) =>
-  players.filter(
-    (player) => getObjectValueByString(player, metricPathStr) > 0,
+const addTrophyToTrophiesArray = (trophiesArr, { league, season, country }) => {
+  const trophyFoundIndex = trophiesArr.findIndex(
+    (trophy) => trophy.league === league,
   );
+
+  if (trophyFoundIndex !== -1) {
+    trophiesArr[trophyFoundIndex].seasons.push(season);
+    trophiesArr[trophyFoundIndex].amount += 1;
+  } else {
+    trophiesArr.push({
+      league,
+      country,
+      seasons: [season],
+      amount: 1,
+    });
+  }
+};
+
+export const parseTrophiesDataFromApi = (trophies) => {
+  const trophiesParsed = {
+    winner: [],
+    second: [],
+  };
+
+  trophies.forEach((trophy) => {
+    if (trophy.place === 'Winner') {
+      addTrophyToTrophiesArray(trophiesParsed.winner, trophy);
+    } else {
+      addTrophyToTrophiesArray(trophiesParsed.second, trophy);
+    }
+  });
+
+  return trophiesParsed;
+};
+
+const removeTeamPlayersWithNoMetric = (players, metricPathStr) =>
+  players.filter((player) => getObjectValueByString(player, metricPathStr) > 0);
 
 const filterTeamPlayersByPosition = (players, positionToFilter) =>
   players.filter(({ position }) => position === positionToFilter);
@@ -115,5 +163,26 @@ export const setTeamPlayersByTeamId = (playersMap, teamId, playersArray) => ({
   ...playersMap,
   [teamId]: {
     teamPlayers: playersArray,
+  },
+});
+
+export const setTrophiesMap = ({
+  playersMap,
+  teamId,
+  playerId,
+  trophiesMap,
+}) => ({
+  ...playersMap,
+  [teamId]: {
+    teamPlayers: playersMap[teamId].teamPlayers.map((player) => {
+      if (player.id === playerId) {
+        return {
+          ...player,
+          trophiesMap,
+        };
+      }
+
+      return player;
+    }),
   },
 });

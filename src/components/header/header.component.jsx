@@ -1,4 +1,4 @@
-import { Link, Outlet } from 'react-router-dom';
+import { Link, NavLink, Outlet } from 'react-router-dom';
 import navigationLinks from '../../data/navigation.data';
 import HamburgerMenu from '../hamburger-menu/hamburger-menu.component';
 import Icon from '../icon/icon.component';
@@ -32,9 +32,14 @@ export default function Header() {
                       {title}
                     </a>
                   ) : (
-                    <Link className="header__nav-link" to={route}>
+                    <NavLink
+                      className={({ isActive }) => (isActive
+                        ? 'header__nav-link header__nav-link--active'
+                        : 'header__nav-link')}
+                      to={route}
+                    >
                       {title}
-                    </Link>
+                    </NavLink>
                   )}
                 </li>
               ))}

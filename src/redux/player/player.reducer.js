@@ -1,5 +1,5 @@
 import { PLAYER_ACTION_TYPES } from './player.types';
-import { setTeamPlayersByTeamId } from './player.utils';
+import { setTeamPlayersByTeamId, setTrophiesMap } from './player.utils';
 
 const initialState = {
   playersMap: {},
@@ -11,6 +11,7 @@ const initialState = {
 export default function playerReducer(state = initialState, { type, payload }) {
   switch (type) {
     case PLAYER_ACTION_TYPES.FETCH_TEAM_PLAYERS_START:
+    case PLAYER_ACTION_TYPES.FETCH_PLAYER_TROPHIES_START:
       return {
         ...state,
         isLoading: true,
@@ -25,7 +26,19 @@ export default function playerReducer(state = initialState, { type, payload }) {
           payload.playersArray,
         ),
       };
+    case PLAYER_ACTION_TYPES.FETCH_PLAYER_TROPHIES_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        playersMap: setTrophiesMap({
+          playersMap: state.playersMap,
+          teamId: payload.teamId,
+          playerId: payload.playerId,
+          trophiesMap: payload.trophiesMap,
+        }),
+      };
     case PLAYER_ACTION_TYPES.FETCH_TEAM_PLAYERS_FAILURE:
+    case PLAYER_ACTION_TYPES.FETCH_PLAYER_TROPHIES_FAILURE:
       return {
         ...state,
         isLoading: false,

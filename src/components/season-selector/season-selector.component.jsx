@@ -19,9 +19,11 @@ export default function SeasonSelector() {
   }
 
   const handleChange = () => {
+    const selectedSeason = seasonInput.current.value;
+
     dispatch(resetTeamReducerStore());
     dispatch(resetPlayerReducerStore());
-    dispatch(setSelectedSeason(seasonInput.current.value));
+    dispatch(setSelectedSeason(selectedSeason));
   };
 
   return (

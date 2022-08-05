@@ -8,7 +8,10 @@ function App() {
     <Routes>
       <Route path="/" element={<Header />}>
         <Route index element={<Homepage />} />
-        <Route path="/players" element={<PlayerProfilePage />} />
+        <Route
+          path="/teams/:teamId/players/:playerId"
+          element={<PlayerProfilePage />}
+        />
       </Route>
     </Routes>
   );

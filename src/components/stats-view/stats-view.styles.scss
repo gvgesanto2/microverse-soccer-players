@@ -82,7 +82,12 @@
 
   &__grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
+    align-items: start;
     grid-gap: 2.4rem;
+
+    @media only screen and (min-width: 64em) {
+      grid-template-columns: 1fr 1fr;
+    }
   }
 }

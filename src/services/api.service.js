@@ -1,11 +1,16 @@
 /* eslint-disable no-await-in-loop */
 import axios from 'axios';
 
+// const apiKeys = [
+//   '079a852733bca06c231fa32314cb357b',
+//   '61755956a03583dbec78e118c9d5fb77',
+// ];
+
 export const api = axios.create({
   baseURL: 'https://v3.football.api-sports.io',
   headers: {
     'x-rapidapi-host': 'v3.football.api-sports.io',
-    // 'x-rapidapi-key': '61755956a03583dbec78e118c9d5fb77',
+    'x-rapidapi-key': '079a852733bca06c231fa32314cb357b',
   },
 });
 
@@ -16,6 +21,7 @@ export const getTeamsFromPremiereLeagueBySeason = async (season) => {
       season,
     },
   });
+
   return data.response;
 };
 
@@ -39,4 +45,13 @@ export const getPlayersFromTeamBySeason = async (teamId, season) => {
   } while (page <= totalPages);
 
   return players;
+};
+
+export const fetchPlayerTrophiesById = async (playerId) => {
+  const { data } = await api.get('/trophies', {
+    params: {
+      player: playerId,
+    },
+  });
+  return data.response;
 };

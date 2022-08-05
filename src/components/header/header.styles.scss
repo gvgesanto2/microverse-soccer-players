@@ -47,7 +47,7 @@ $nav-link-border-height: 2px;
     align-items: center;
 
     & > li:not(:last-child) {
-      margin-right: 1.8rem;
+      margin-right: 1.4rem;
     }
   }
 
@@ -57,13 +57,20 @@ $nav-link-border-height: 2px;
     justify-content: center;
     height: var(--header-height);
     border-bottom: $nav-link-border-height solid transparent;
-    font-weight: 500;
+    font-weight: 400;
     text-transform: capitalize;
-    padding: $nav-link-border-height 0.2rem 0;
+    padding: $nav-link-border-height 0.4rem 0;
     transition: border-color 0.2s;
 
+    &--active,
+    &:active,
     &:hover {
-      border-color: currentColor;
+      border-color: var(--color-primary);
+    }
+
+    &--active,
+    &:active {
+      font-weight: 500;
     }
   }
 

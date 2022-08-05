@@ -32,6 +32,28 @@ export const selectTeamPlayers = createSelector(
   },
 );
 
+export const selectPlayer = createSelector(
+  [
+    selectTeamPlayers,
+    (state, teamId, playerId) => playerId,
+  ],
+  (teamPlayers, playerId) => teamPlayers.find(({ id }) => id === playerId),
+);
+
+export const selectStatsByLeagueName = createSelector(
+  [
+    selectPlayer,
+    (state, teamId, playerId, leagueName) => leagueName,
+  ],
+  ({ stats }, leagueName) => {
+    if (leagueName === 'All Competitions') {
+      return stats.total;
+    }
+
+    return stats.byLeague.find(({ league }) => league.name === leagueName);
+  },
+);
+
 export const selectAttackerPlayers = createSelector(
   [selectTeamPlayers],
   (teamPlayers) => filterTeamPlayersByOption(teamPlayers, 'Attacker'),

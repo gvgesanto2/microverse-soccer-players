@@ -15,6 +15,7 @@ export default function PlayersList() {
         }) => (
           <PlayerListItem
             key={id}
+            playerId={id}
             name={name}
             imgUrl={photo}
             position={position}

@@ -1,8 +1,8 @@
 /* eslint-disable implicit-arrow-linebreak */
-import { getPlayersFromTeamBySeason } from '../../services/api.service';
+import { fetchPlayerTrophiesById, getPlayersFromTeamBySeason } from '../../services/api.service';
 import { createAction } from '../../utils/reducer.utils';
 import { PLAYER_ACTION_TYPES } from './player.types';
-import { parsePlayersDataFromApi } from './player.utils';
+import { parsePlayersDataFromApi, parseTrophiesDataFromApi } from './player.utils';
 
 export const setFilteredPlayers = (filteredPlayers) =>
   createAction(PLAYER_ACTION_TYPES.SET_FILTERED_PLAYERS, filteredPlayers);
@@ -30,6 +30,32 @@ export const fetchTeamPlayersStartAsync = (teamId, season) => async (dispatch) =
     dispatch(setFilteredPlayers(playersArray));
   } catch (error) {
     dispatch(fetchTeamPlayersFailure(error));
+  }
+};
+
+export const fetchPlayerTrophiesStart = () =>
+  createAction(PLAYER_ACTION_TYPES.FETCH_PLAYER_TROPHIES_START);
+
+export const fetchPlayerTrophiesSuccess = (teamId, playerId, trophiesMap) =>
+  createAction(PLAYER_ACTION_TYPES.FETCH_PLAYER_TROPHIES_SUCCESS, {
+    teamId,
+    playerId,
+    trophiesMap,
+  });
+
+export const fetchPlayerTrophiesFailure = (error) =>
+  createAction(PLAYER_ACTION_TYPES.FETCH_PLAYER_TROPHIES_FAILURE, error);
+
+export const fetchPlayerTrophiesStartAsync = (teamId, playerId) => async (dispatch) => {
+  dispatch(fetchPlayerTrophiesStart());
+
+  try {
+    const trophiesFromApi = await fetchPlayerTrophiesById(playerId);
+    const trophiesMap = parseTrophiesDataFromApi(trophiesFromApi);
+
+    dispatch(fetchPlayerTrophiesSuccess(teamId, playerId, trophiesMap));
+  } catch (error) {
+    dispatch(fetchPlayerTrophiesFailure(error));
   }
 };
 

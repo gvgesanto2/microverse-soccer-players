@@ -9,13 +9,17 @@ import PlayersView from '../../components/players-view/players-view.component';
 
 import './homepage.styles.scss';
 import { selectSelectedSeason } from '../../redux/season/season.selectors';
+import { selectTeamsArray } from '../../redux/team/team.selectors';
 
 export default function Homepage() {
   const dispatch = useDispatch();
   const selectedSeason = useSelector(selectSelectedSeason);
+  const teamsArray = useSelector(selectTeamsArray);
 
   useEffect(() => {
-    dispatch(fetchTeamsStartAsync(selectedSeason));
+    if (teamsArray.length === 0) {
+      dispatch(fetchTeamsStartAsync(selectedSeason));
+    }
   }, [selectedSeason]);
 
   return (

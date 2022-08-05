@@ -36,7 +36,7 @@
   &__list {
     display: flex;
 
-    & > li:not(:last-child) {
+    & > *:not(:last-child) {
       margin-right: 1.2rem;
     }
   }

@@ -68,12 +68,13 @@
 
   &__item-name {
     font-size: 1.3rem;
-    text-align: end;
+    padding-right: 1.2rem;
   }
 
   &__item-value {
     font-size: 1.5rem;
     font-weight: 500;
+    text-align: end;
     color: var(--color-white);
   }
 }
