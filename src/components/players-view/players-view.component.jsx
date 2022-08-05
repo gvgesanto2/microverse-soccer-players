@@ -1,21 +1,34 @@
 import { useSelector } from 'react-redux';
-import { selectFilteredPlayers } from '../../redux/player/player.selectors';
 import {
-  selectSelectedTeam,
-} from '../../redux/team/team.selectors';
+  selectFilteredPlayers,
+  selectIsLoading,
+} from '../../redux/player/player.selectors';
+import { selectSelectedTeam } from '../../redux/team/team.selectors';
 
 import PlayersFilters from '../players-filters/players-filters.component';
 import PlayersList from '../players-list/players-list.component';
+import Spinner from '../spinner/spinner.component';
 
 import './players-view.styles.scss';
 
 export default function PlayersView() {
   const selectedTeamId = useSelector(selectSelectedTeam);
   const filteredPlayers = useSelector(selectFilteredPlayers);
+  const isLoadingPlayers = useSelector(selectIsLoading);
 
   const statusMessage = selectedTeamId
     ? 'No players found.'
     : 'No team selected! Please, select a team first.';
+
+  let componentToRender;
+
+  if (isLoadingPlayers) {
+    componentToRender = <Spinner size="sm" />;
+  } else if (filteredPlayers.length > 0) {
+    componentToRender = <PlayersList />;
+  } else {
+    componentToRender = <p className="players-view__msg">{statusMessage}</p>;
+  }
 
   return (
     <section className="players-view">
@@ -31,13 +44,7 @@ export default function PlayersView() {
         <PlayersFilters />
       </div>
 
-      <div className="players-view__end">
-        {filteredPlayers.length > 0 ? (
-          <PlayersList />
-        ) : (
-          <p className="players-view__msg">{statusMessage}</p>
-        )}
-      </div>
+      <div className="players-view__end">{componentToRender}</div>
     </section>
   );
 }

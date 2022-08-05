@@ -9,12 +9,14 @@ import PlayersView from '../../components/players-view/players-view.component';
 
 import './homepage.styles.scss';
 import { selectSelectedSeason } from '../../redux/season/season.selectors';
-import { selectTeamsArray } from '../../redux/team/team.selectors';
+import { selectIsLoading, selectTeamsArray } from '../../redux/team/team.selectors';
+import Spinner from '../../components/spinner/spinner.component';
 
 export default function Homepage() {
   const dispatch = useDispatch();
   const selectedSeason = useSelector(selectSelectedSeason);
   const teamsArray = useSelector(selectTeamsArray);
+  const isLoadingTeams = useSelector(selectIsLoading);
 
   useEffect(() => {
     if (teamsArray.length === 0) {
@@ -23,10 +25,14 @@ export default function Homepage() {
   }, [selectedSeason]);
 
   return (
-    <section className="home">
-      <Headline />
-      <TeamsView />
-      <PlayersView />
-    </section>
+    isLoadingTeams ? (
+      <Spinner />
+    ) : (
+      <section className="home">
+        <Headline />
+        <TeamsView />
+        <PlayersView />
+      </section>
+    )
   );
 }

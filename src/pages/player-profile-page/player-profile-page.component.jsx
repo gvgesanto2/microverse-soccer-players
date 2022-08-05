@@ -8,11 +8,15 @@ import PlayerProfileHeader from '../../components/player-profile-header/player-p
 import StatsView from '../../components/stats-view/stats-view.component';
 
 import './player-profile-page.styles.scss';
-import { selectPlayer } from '../../redux/player/player.selectors';
+import {
+  selectIsLoading,
+  selectPlayer,
+} from '../../redux/player/player.selectors';
 import { selectTeam } from '../../redux/team/team.selectors';
 import { fetchPlayerTrophiesStartAsync } from '../../redux/player/player.actions';
 import { selectSelectedSeason } from '../../redux/season/season.selectors';
 import BreadcrumbsBar from '../../components/breadcrumbs-bar/breadcrumbs-bar.component';
+import Spinner from '../../components/spinner/spinner.component';
 
 const routesToExclude = ['/teams', '/teams/:teamId', '/teams/:teamId/players'];
 
@@ -22,9 +26,11 @@ export default function PlayerProfilePage() {
   const teamIdParsed = Number(teamId);
   const playerIdParsed = Number(playerId);
 
+  const isLoadingPlayers = useSelector(selectIsLoading);
   const selectedSeason = useSelector(selectSelectedSeason);
   const team = useSelector((state) => selectTeam(state, teamIdParsed));
-  const player = useSelector((state) => selectPlayer(state, teamIdParsed, playerIdParsed));
+  const player = useSelector((state) =>
+    selectPlayer(state, teamIdParsed, playerIdParsed));
   const {
     name, photo, position, stats, trophiesMap,
   } = player;
@@ -39,11 +45,18 @@ export default function PlayerProfilePage() {
     stats.map(({ league }) => league);
 
   const competitions = getCompetitionsFromStatsArray(stats.byLeague);
-  const customRoutes = [{ path: '/teams/:teamId/players/:playerId', breadcrumb: `${name} profile` }];
+  const customRoutes = [
+    { path: '/teams/:teamId/players/:playerId', breadcrumb: `${name} profile` },
+  ];
 
-  return (
+  return isLoadingPlayers ? (
+    <Spinner />
+  ) : (
     <section className="player-profile">
-      <BreadcrumbsBar customRoutes={customRoutes} routesToExclude={routesToExclude} />
+      <BreadcrumbsBar
+        customRoutes={customRoutes}
+        routesToExclude={routesToExclude}
+      />
       <PlayerProfileHeader
         season={selectedSeason}
         teamName={team.name}
