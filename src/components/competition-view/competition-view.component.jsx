@@ -13,10 +13,14 @@ export default function CompetitionView({ competitions }) {
       </header>
 
       <ScrollContainer className="competition-view__list">
-        <CompetitionCard name="All Competitions" altText="all" />
+        <article>
+          <CompetitionCard name="All Competitions" altText="all" />
+        </article>
 
         {competitions.map(({ id, name, logo }) => (
-          <CompetitionCard key={id} name={name} imgUrl={logo} />
+          <article key={id}>
+            <CompetitionCard name={name} imgUrl={logo} />
+          </article>
         ))}
       </ScrollContainer>
     </section>

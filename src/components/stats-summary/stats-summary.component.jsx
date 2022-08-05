@@ -19,11 +19,11 @@ export default function StatsSummary({
         <span className="stats-summary__value">{minutes}</span>
         <h3 className="stats-summary__title">minutes</h3>
       </li>
-      <li className="stats-summary__item">
+      <li className="stats-summary__item stats-summary__item--hidable">
         <span className="stats-summary__value">{goals}</span>
         <h3 className="stats-summary__title">goals</h3>
       </li>
-      <li className="stats-summary__item">
+      <li className="stats-summary__item stats-summary__item--hidable">
         <span className="stats-summary__value">{assists}</span>
         <h3 className="stats-summary__title">assists</h3>
       </li>

@@ -23,14 +23,14 @@ export default function TeamsView() {
           teams.map(({
             id, name, logo, founded,
           }) => (
-            <li key={id} className="teams-view__item">
+            <article key={id} className="teams-view__item">
               <TeamCard
                 id={id}
                 name={name}
                 imgUrl={logo}
                 foundedYear={founded}
               />
-            </li>
+            </article>
           ))
         }
         </ScrollContainer>

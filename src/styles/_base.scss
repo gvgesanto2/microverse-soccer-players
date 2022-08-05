@@ -9,8 +9,20 @@
 
 // Base Styles
 html {
-  font-size: 62.5%;
+  font-size: 52.25%;
   box-sizing: border-box;
+
+  @media only screen and (min-width: 20em) {
+    font-size: 56.25%;
+  }
+
+  @media only screen and (min-width: 23.4375em) {
+    font-size: 62.5%;
+  }
+
+  @media only screen and (min-width: 160em) {
+    font-size: 80%;
+  }
 }
 
 body {
