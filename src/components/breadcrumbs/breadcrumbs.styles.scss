@@ -1,0 +1,106 @@
+$gap: 0.8rem;
+$parent-bg-color: var(--color-grey-900);
+$breadcrumb-bg-color: var(--color-grey-775);
+$breadcrumb-bg--active-color: var(--color-grey-700);
+$breadcrumb-height: 4.2rem;
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+
+  &__link {
+    display: flex;
+    align-items: center;
+    height: $breadcrumb-height;
+    background-color: $breadcrumb-bg-color;
+    position: relative;
+    margin-right: 1rem;
+    text-align: center;
+    padding: 0 2.4rem 0 3.6rem;
+    transition: all 0.2s;
+
+    &::after {
+      content: "";
+      border-top: calc($breadcrumb-height / 2) solid transparent;
+      border-bottom: calc($breadcrumb-height / 2) solid transparent;
+      border-left: calc($breadcrumb-height / 2) solid $breadcrumb-bg-color;
+      position: absolute;
+      right: - calc($breadcrumb-height / 2);
+      top: 0;
+      z-index: 1;
+      transition: all 0.2s;
+    }
+
+    &::before {
+      content: "";
+      border-top: calc($breadcrumb-height / 2) solid transparent;
+      border-bottom: calc($breadcrumb-height / 2) solid transparent;
+      border-left: calc($breadcrumb-height / 2) solid $parent-bg-color;
+      position: absolute;
+      left: 0;
+      top: 0;
+      transition: all 0.2s;
+    }
+
+    &:first-child {
+      border-top-left-radius: 0.8rem;
+      border-bottom-left-radius: 0.8rem;
+      padding: 0 2.4rem;
+
+      &::before {
+        display: none;
+      }
+    }
+
+    &:last-child {
+      border-top-right-radius: 0.8rem;
+      border-bottom-right-radius: 0.8rem;
+
+      &::after {
+        display: none;
+      }
+    }
+
+    &:hover,
+    &:active,
+    &--active {
+      background-color: $breadcrumb-bg--active-color;
+
+      &::after {
+        border-left-color: $breadcrumb-bg--active-color;
+      }
+    }
+  }
+
+  // &__link {
+  //   &:active,
+  //   &--active {
+  //     text-decoration: underline;
+  //   }
+  // }
+}
+// .breadcrumbs {
+//   display: flex;
+//   align-items: center;
+
+//   & > span:not(:last-child) {
+//     position: relative;
+//     margin-right: calc($gap + 0.82rem);
+//     padding-right: $gap;
+
+//     &::after {
+//       content: "❯";
+//       position: absolute;
+//       top: 0;
+//       right: 0;
+//       transform: translateX(100%);
+//     }
+//   }
+
+//   &__link {
+//     &:active,
+//     &--active {
+//       text-decoration: underline;
+//     }
+//   }
+// }

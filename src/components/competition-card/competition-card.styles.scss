@@ -1,0 +1,74 @@
+.competition-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 12.5rem;
+  height: 16.4rem;
+  background-color: var(--color-grey-775);
+  border-radius: 0.8rem;
+  border: 2px solid transparent;
+  padding: 2rem 1.2rem;
+  transition: all 0.2s;
+  cursor: pointer;
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 80%;
+    height: 100%;
+    top: 0;
+    left: 10%;
+    background-color: rgba(50, 50, 56, 0.5);
+    z-index: 1;
+  }
+
+  &__custom-logo,
+  &__img {
+    width: 5.5rem;
+    height: 5.5rem;
+    box-sizing: content-box;
+    object-fit: cover;
+    border-radius: 50%;
+    padding: 0.6rem;
+    background-color: var(--color-grey-200);
+    margin-bottom: 0.8rem;
+  }
+
+  &__custom-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.4rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    color: var(--color-primary-400);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  &__name {
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-align: center;
+    color: var(--color-white);
+  }
+
+  &--active {
+    border-color: var(--color-primary);
+
+    .competition-card__img,
+    .competition-card__custom-logo,
+    .competition-card__name {
+      z-index: 2;
+    }
+  }
+
+  &:hover {
+    .competition-card__img,
+    .competition-card__custom-logo,
+    .competition-card__name {
+      z-index: 2;
+    }
+  }
+}

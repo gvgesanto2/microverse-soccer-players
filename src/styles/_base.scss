@@ -1,0 +1,65 @@
+// Resetting
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+// Base Styles
+html {
+  font-size: 52.25%;
+  box-sizing: border-box;
+
+  @media only screen and (min-width: 20em) {
+    font-size: 56.25%;
+  }
+
+  @media only screen and (min-width: 23.4375em) {
+    font-size: 62.5%;
+  }
+
+  @media only screen and (min-width: 160em) {
+    font-size: 80%;
+  }
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  background-color: var(--color-grey-900);
+  color: var(--color-text);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+input,
+textarea,
+button,
+select,
+option {
+  font-family: inherit;
+  font-weight: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+svg {
+  color: inherit;
+  fill: currentColor;
+}
+
+textarea {
+  resize: none;
+}

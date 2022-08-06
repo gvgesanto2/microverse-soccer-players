@@ -1,0 +1,45 @@
+.players-view {
+  background-color: var(--color-grey-800);
+  border-radius: 0.8rem;
+
+  &__start {
+    padding: 2rem 2rem 0;
+  }
+
+  &__title {
+    width: 100%;
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-align: center;
+    padding: 0 2rem;
+
+    @media only screen and (min-width: 48em) {
+      width: auto;
+      position: relative;
+      text-align: start;
+      padding-left: 1.2rem;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 3px;
+        background-color: var(--color-primary);
+        border-radius: 100px;
+      }
+    }
+  }
+
+  &__center {
+    margin: 2.4rem 0;
+    padding: 1.2rem 2rem;
+    border-top: 2px solid var(--color-grey-900);
+    border-bottom: 2px solid var(--color-grey-900);
+  }
+
+  &__end {
+    padding: 0 2rem 2rem;
+  }
+}

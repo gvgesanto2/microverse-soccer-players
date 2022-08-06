@@ -1,0 +1,34 @@
+.player-profile {
+  padding: 4.8rem 3rem 3rem;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    margin-top: 3.2rem;
+
+    @media only screen and (min-width: 64em) {
+      flex-direction: row;
+    }
+  }
+
+  &__left {
+    flex: 0 0 21.5%;
+    margin-bottom: 3.2rem;
+
+    @media only screen and (min-width: 64em) {
+      min-width: 30rem;
+      border-right: var(--separator-line-dark--md);
+      padding-right: 4.2rem;
+      margin: 0 4.2rem 0 0;
+    }
+  }
+
+  &__right {
+    flex: 1;
+    overflow-x: hidden;
+
+    & > *:not(:last-child) {
+      margin-bottom: 3.2rem;
+    }
+  }
+}
