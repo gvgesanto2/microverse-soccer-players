@@ -17,8 +17,8 @@ export default function CompetitionView({ competitions }) {
           <CompetitionCard name="All Competitions" altText="all" />
         </article>
 
-        {competitions.map(({ id, name, logo }) => (
-          <article key={id}>
+        {competitions.map(({ id, name, logo }, index) => (
+          <article key={`competition-view-${id}-${index + 1}`}>
             <CompetitionCard name={name} imgUrl={logo} />
           </article>
         ))}
