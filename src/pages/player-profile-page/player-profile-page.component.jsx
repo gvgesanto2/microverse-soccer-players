@@ -17,6 +17,8 @@ import { fetchPlayerTrophiesStartAsync } from '../../redux/player/player.actions
 import { selectSelectedSeason } from '../../redux/season/season.selectors';
 import BreadcrumbsBar from '../../components/breadcrumbs-bar/breadcrumbs-bar.component';
 import Spinner from '../../components/spinner/spinner.component';
+import { DEFAULT_SELECTED_COMPETITON } from '../../redux/competition/competition.data';
+import { setSelectedCompetition } from '../../redux/competition/competition.actions';
 
 const routesToExclude = ['/teams', '/teams/:teamId', '/teams/:teamId/players'];
 
@@ -39,6 +41,10 @@ export default function PlayerProfilePage() {
     if (!trophiesMap) {
       dispatch(fetchPlayerTrophiesStartAsync(teamIdParsed, playerIdParsed));
     }
+
+    return function cleanup() {
+      dispatch(setSelectedCompetition(DEFAULT_SELECTED_COMPETITON));
+    };
   }, []);
 
   const getCompetitionsFromStatsArray = (stats) =>

@@ -4,12 +4,6 @@
   flex-wrap: wrap;
   gap: 0.4rem;
 
-  // display: flex;
-  // justify-content: center;
-  // flex-wrap: wrap;
-  // border: var(--separator-line--md);
-  // border-radius: 0.8rem;
-
   @media only screen and (min-width: 48em) {
     border: var(--separator-line--md);
     border-radius: 0.8rem;
@@ -29,20 +23,6 @@
       border-right: var(--separator-line--md);
     }
   }
-
-  // & > li:first-child {
-  //   border-top-left-radius: 0.8rem;
-  //   border-bottom-left-radius: 0.8rem;
-  // }
-
-  // & > li:last-child {
-  //   border-top-right-radius: 0.8rem;
-  //   border-bottom-right-radius: 0.8rem;
-  // }
-
-  // & > li:not(:last-child) {
-  //   border-right: var(--separator-line--md);
-  // }
 
   &__item {
     display: flex;

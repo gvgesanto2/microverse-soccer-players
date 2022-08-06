@@ -28,7 +28,7 @@ export default function StatsSummary({
         <h3 className="stats-summary__title">assists</h3>
       </li>
       <li className="stats-summary__item">
-        <span className="stats-summary__value">{rating}</span>
+        <span className="stats-summary__value">{rating || 'N/A'}</span>
         <h3 className="stats-summary__title">rating</h3>
       </li>
     </ul>

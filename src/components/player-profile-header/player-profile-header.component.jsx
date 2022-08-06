@@ -28,7 +28,7 @@ export default function PlayerProfileHeader({
         />
 
         <div className="player-profile-header__rating">
-          <p className="player-profile-header__rating-value">{playerAverageRating}</p>
+          <p className="player-profile-header__rating-value">{playerAverageRating || 'N/A'}</p>
           <h4 className="player-profile-header__rating-title">
             {`Rating in ${season}`}
           </h4>
