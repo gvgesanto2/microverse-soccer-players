@@ -17,6 +17,10 @@
 - **Conventions and Methodologies:**
   - BEM
 
+## Live Demo
+
+Click on this link to see this project live demo: [Live Demo Link](https://playersstats.herokuapp.com/)
+
 ## Documentation Video
 
 Click on this link to see the documentation video: [Doc Video Link](https://www.loom.com/share/c703ee2a86864583a0fbbe748e4f57a7)
