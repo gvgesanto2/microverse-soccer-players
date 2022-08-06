@@ -5,7 +5,15 @@ import './player-details-overview.styles.scss';
 
 export default function PlayerDetailsOverview({ player, teamName }) {
   const {
-    firstName, lastName, height, weight, position, age, nationality, birth,
+    firstName,
+    lastName,
+    height,
+    weight,
+    position,
+    age,
+    nationality,
+    birth,
+    trophiesMap,
   } = player;
 
   return (
@@ -18,11 +26,15 @@ export default function PlayerDetailsOverview({ player, teamName }) {
         <h3 className="player-details-overview__sub-title">Personal Details</h3>
         <ul className="player-details-overview__list">
           <li className="player-details-overview__item">
-            <span className="player-details-overview__item-name">First Name</span>
+            <span className="player-details-overview__item-name">
+              First Name
+            </span>
             <p className="player-details-overview__item-value">{firstName}</p>
           </li>
           <li className="player-details-overview__item">
-            <span className="player-details-overview__item-name">Last Name</span>
+            <span className="player-details-overview__item-name">
+              Last Name
+            </span>
             <p className="player-details-overview__item-value">{lastName}</p>
           </li>
           <li className="player-details-overview__item">
@@ -34,19 +46,27 @@ export default function PlayerDetailsOverview({ player, teamName }) {
             <p className="player-details-overview__item-value">{weight}</p>
           </li>
           <li className="player-details-overview__item">
-            <span className="player-details-overview__item-name">Date of Birth</span>
+            <span className="player-details-overview__item-name">
+              Date of Birth
+            </span>
             <p className="player-details-overview__item-value">{`${birth.date} (${age})`}</p>
           </li>
           <li className="player-details-overview__item">
-            <span className="player-details-overview__item-name">Place of Birth</span>
+            <span className="player-details-overview__item-name">
+              Place of Birth
+            </span>
             <p className="player-details-overview__item-value">{`${birth.place}, ${birth.country}`}</p>
           </li>
           <li className="player-details-overview__item">
-            <span className="player-details-overview__item-name">Nationality</span>
+            <span className="player-details-overview__item-name">
+              Nationality
+            </span>
             <p className="player-details-overview__item-value">{nationality}</p>
           </li>
         </ul>
-        <h3 className="player-details-overview__sub-title">Professional Details</h3>
+        <h3 className="player-details-overview__sub-title">
+          Professional Details
+        </h3>
         <ul className="player-details-overview__list">
           <li className="player-details-overview__item">
             <span className="player-details-overview__item-name">Club</span>
@@ -57,21 +77,53 @@ export default function PlayerDetailsOverview({ player, teamName }) {
             <p className="player-details-overview__item-value">{position}</p>
           </li>
         </ul>
-        <h3 className="player-details-overview__sub-title">Honours & Awards</h3>
-        <ul className="player-details-overview__list">
-          <li className="player-details-overview__item">
-            <span className="player-details-overview__item-name">First name</span>
-            <p className="player-details-overview__item-value">Gabriel</p>
-          </li>
-          <li className="player-details-overview__item">
-            <span className="player-details-overview__item-name">Last name</span>
-            <p className="player-details-overview__item-value">Jesus</p>
-          </li>
-          <li className="player-details-overview__item">
-            <span className="player-details-overview__item-name">Height</span>
-            <p className="player-details-overview__item-value">180 cm</p>
-          </li>
-        </ul>
+        {(trophiesMap?.winner.length > 0 || trophiesMap?.second.length > 0) && (
+          <>
+            <h3 className="player-details-overview__sub-title">
+              Honours & Awards
+            </h3>
+            <ul className="player-details-overview__award-categories">
+              {trophiesMap?.winner.length > 0 && (
+                <li>
+                  <h4 className="player-details-overview__award-category">
+                    Champion:
+                  </h4>
+                  <ul className="player-details-overview__award-list">
+                    {trophiesMap?.winner.map(({ league, country, amount }) => (
+                      <li key={league}>
+                        <span className="player-details-overview__award-name">
+                          {`${league} (${country})`}
+                        </span>
+                        <p className="player-details-overview__award-amount">
+                          {amount}
+                        </p>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              )}
+              {trophiesMap?.second.length > 0 && (
+                <li>
+                  <h4 className="player-details-overview__award-category">
+                    Runner-up:
+                  </h4>
+                  <ul className="player-details-overview__award-list">
+                    {trophiesMap?.second.map(({ league, country, amount }) => (
+                      <li key={league}>
+                        <span className="player-details-overview__award-name">
+                          {`${league} (${country})`}
+                        </span>
+                        <p className="player-details-overview__award-amount">
+                          {amount}
+                        </p>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              )}
+            </ul>
+          </>
+        )}
       </div>
     </section>
   );
