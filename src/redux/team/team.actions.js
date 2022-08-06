@@ -1,5 +1,5 @@
 /* eslint-disable implicit-arrow-linebreak */
-import { getTeamsFromPremiereLeagueBySeason } from '../../services/api.service';
+import { fetchTeamsFromPremiereLeagueBySeason } from '../../services/api.service';
 import { createAction } from '../../utils/reducer.utils';
 import { TEAM_ACTION_TYPES } from './team.types';
 import { parseTeamsDataFromApi } from './team.utils';
@@ -17,7 +17,7 @@ export const fetchTeamsStartAsync = (season) => async (dispatch) => {
   dispatch(fetchTeamsStart());
 
   try {
-    const teamsFromApi = await getTeamsFromPremiereLeagueBySeason(season);
+    const teamsFromApi = await fetchTeamsFromPremiereLeagueBySeason(season);
     const teamsArray = parseTeamsDataFromApi(teamsFromApi);
 
     dispatch(fetchTeamsSuccess(teamsArray));
