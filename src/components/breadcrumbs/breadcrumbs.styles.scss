@@ -22,16 +22,16 @@ $breadcrumb-height: 4.2rem;
     &::after {
       content: "";
       border-top: calc($breadcrumb-height / 2) solid transparent;
-	 		border-bottom: calc($breadcrumb-height / 2) solid transparent;
-	  	border-left: calc($breadcrumb-height / 2) solid $breadcrumb-bg-color;
+      border-bottom: calc($breadcrumb-height / 2) solid transparent;
+      border-left: calc($breadcrumb-height / 2) solid $breadcrumb-bg-color;
       position: absolute;
       right: - calc($breadcrumb-height / 2);
       top: 0;
       z-index: 1;
       transition: all 0.2s;
-
     }
-    &:before {
+
+    &::before {
       content: "";
       border-top: calc($breadcrumb-height / 2) solid transparent;
       border-bottom: calc($breadcrumb-height / 2) solid transparent;
@@ -71,8 +71,6 @@ $breadcrumb-height: 4.2rem;
       }
     }
   }
-
-
 
   // &__link {
   //   &:active,

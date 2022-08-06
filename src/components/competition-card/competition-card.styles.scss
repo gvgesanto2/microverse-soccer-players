@@ -12,14 +12,6 @@
   transition: all 0.2s;
   cursor: pointer;
 
-  &:hover {
-    .competition-card__img,
-    .competition-card__custom-logo,
-    .competition-card__name {
-      z-index: 2;
-    }
-  }
-
   &::after {
     content: '';
     position: absolute;
@@ -27,8 +19,7 @@
     height: 100%;
     top: 0;
     left: 10%;
-    background-color: rgba(#3d3c42, 0.5);
-    background-color: rgba(#323238, 0.5);
+    background-color: rgba(50, 50, 56, 0.5);
     z-index: 1;
   }
 
@@ -66,6 +57,14 @@
   &--active {
     border-color: var(--color-primary);
 
+    .competition-card__img,
+    .competition-card__custom-logo,
+    .competition-card__name {
+      z-index: 2;
+    }
+  }
+
+  &:hover {
     .competition-card__img,
     .competition-card__custom-logo,
     .competition-card__name {

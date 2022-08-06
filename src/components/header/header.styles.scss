@@ -7,7 +7,7 @@ $nav-link-border-height: 2px;
   width: 100%;
   height: var(--header-height);
   background-color: var(--color-bg-header);
-  box-shadow: var(--color-grey-900) 0px 1.6rem 2rem;
+  box-shadow: var(--color-grey-900) 0 1.6rem 2rem;
   // color: var(--color-white);
   z-index: 100;
 
@@ -28,6 +28,7 @@ $nav-link-border-height: 2px;
 
   &__logo-text {
     display: none;
+
     @media only screen and (min-width: 17.5em) {
       display: block;
       font-size: 2.4rem;
