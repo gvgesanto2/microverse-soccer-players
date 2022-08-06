@@ -1,17 +1,11 @@
 /* eslint-disable no-await-in-loop */
 import axios from 'axios';
 
-// const apiKeys = [
-//   '079a852733bca06c231fa32314cb357b',
-//   '61755956a03583dbec78e118c9d5fb77',
-//   'd59e4f6c58f7a3be75489d2e3cf6b6da',
-// ];
-
 export const api = axios.create({
   baseURL: 'https://v3.football.api-sports.io',
   headers: {
     'x-rapidapi-host': 'v3.football.api-sports.io',
-    'x-rapidapi-key': '61755956a03583dbec78e118c9d5fb77',
+    'x-rapidapi-key': 'd59e4f6c58f7a3be75489d2e3cf6b6da',
   },
 });
 
