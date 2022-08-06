@@ -1,5 +1,5 @@
 /* eslint-disable implicit-arrow-linebreak */
-import { fetchPlayerTrophiesById, getPlayersFromTeamBySeason } from '../../services/api.service';
+import { fetchPlayersFromTeamBySeason, fetchPlayerTrophiesById } from '../../services/api.service';
 import { createAction } from '../../utils/reducer.utils';
 import { PLAYER_ACTION_TYPES } from './player.types';
 import { parsePlayersDataFromApi, parseTrophiesDataFromApi } from './player.utils';
@@ -23,7 +23,7 @@ export const fetchTeamPlayersStartAsync = (teamId, season) => async (dispatch) =
   dispatch(fetchTeamPlayersStart());
 
   try {
-    const playersFromApi = await getPlayersFromTeamBySeason(teamId, season);
+    const playersFromApi = await fetchPlayersFromTeamBySeason(teamId, season);
     const playersArray = parsePlayersDataFromApi(playersFromApi);
 
     dispatch(fetchTeamPlayersSuccess(teamId, playersArray));

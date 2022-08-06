@@ -18,22 +18,31 @@ export default function TeamsView() {
         <span className="teams-view__season">{`season ${selectedSeason}`}</span>
       </header>
       <div className="teams-view__content">
-        <ScrollContainer className="teams-view__list">
-          {
-          teams.map(({
-            id, name, logo, founded,
-          }) => (
-            <article key={id} className="teams-view__item">
-              <TeamCard
-                id={id}
-                name={name}
-                imgUrl={logo}
-                foundedYear={founded}
-              />
-            </article>
-          ))
-        }
-        </ScrollContainer>
+        {teams.length > 0 ? (
+          <ScrollContainer className="teams-view__list">
+            {teams.map(({
+              id, name, logo, founded,
+            }, index) => (
+              <article
+                key={`teams-view-${id}-${index + 1}`}
+                className="teams-view__item"
+              >
+                <TeamCard
+                  id={id}
+                  name={name}
+                  imgUrl={logo}
+                  foundedYear={founded}
+                />
+              </article>
+            ))}
+          </ScrollContainer>
+        ) : (
+          <p className="teams-view__msg">
+            Unfortunately, this application has a limited number of daily
+            requests, which have already been exceeded for today. Please, try to
+            access it tomorrow.
+          </p>
+        )}
       </div>
     </section>
   );

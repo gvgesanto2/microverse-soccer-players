@@ -12,9 +12,9 @@ export default function PlayersList() {
       {
         filteredPlayers.map(({
           id, name, photo, position,
-        }) => (
+        }, index) => (
           <PlayerListItem
-            key={id}
+            key={`players-list-${id}-${index + 1}`}
             playerId={id}
             name={name}
             imgUrl={photo}
