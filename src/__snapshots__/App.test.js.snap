@@ -1,0 +1,306 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App component should render correctly with the Homepage content 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <header
+        class="header"
+      >
+        <div
+          class="header__content"
+        >
+          <a
+            class="header__logo"
+            data-testid="logo-link"
+            href="/"
+          >
+            <svg
+              class="icon--lg"
+            >
+              <use
+                xlink:href="sprite.svg#pl-logo"
+              />
+            </svg>
+            <span
+              class="header__logo-text"
+            >
+              Players Stats
+            </span>
+          </a>
+          <nav
+            class="header__nav"
+          >
+            <ul
+              class="header__nav-list"
+            >
+              <li>
+                <a
+                  aria-current="page"
+                  class="header__nav-link header__nav-link--active"
+                  href="/"
+                >
+                  home
+                </a>
+              </li>
+              <li>
+                <a
+                  class="header__nav-link"
+                  href="https://github.com/gvgesanto2/microverse-soccer-players"
+                  rel="noopener noreferrer"
+                  target="__blank"
+                >
+                  source code
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <div
+            class="header__hamburger-container"
+          >
+            <div
+              class="hamburger-menu "
+              data-testid="hamburger-menu"
+            >
+              <button
+                aria-label="hamburger button"
+                class="hamburger-btn "
+                type="button"
+              >
+                <span
+                  class="hamburger-btn__icon"
+                >
+                   
+                </span>
+              </button>
+              <div
+                class="hamburger-menu__background"
+              >
+                 
+              </div>
+              <nav
+                class="hamburger-menu__nav"
+              >
+                <ul
+                  class="hamburger-menu__nav-list"
+                >
+                  <li>
+                    <a
+                      class="hamburger-menu__link"
+                      href="/"
+                    >
+                      <span>
+                        01
+                      </span>
+                      home
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="hamburger-menu__link"
+                      href="https://github.com/gvgesanto2/microverse-soccer-players"
+                      rel="noopener noreferrer"
+                      target="__blank"
+                    >
+                      <span>
+                        02
+                      </span>
+                      source code
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </header>
+      <main
+        class="main"
+      >
+        <div
+          class="spinner spinner--md"
+        >
+          <div
+            class="spinner__content"
+          />
+        </div>
+      </main>
+    </div>
+  </body>,
+  "container": <div>
+    <header
+      class="header"
+    >
+      <div
+        class="header__content"
+      >
+        <a
+          class="header__logo"
+          data-testid="logo-link"
+          href="/"
+        >
+          <svg
+            class="icon--lg"
+          >
+            <use
+              xlink:href="sprite.svg#pl-logo"
+            />
+          </svg>
+          <span
+            class="header__logo-text"
+          >
+            Players Stats
+          </span>
+        </a>
+        <nav
+          class="header__nav"
+        >
+          <ul
+            class="header__nav-list"
+          >
+            <li>
+              <a
+                aria-current="page"
+                class="header__nav-link header__nav-link--active"
+                href="/"
+              >
+                home
+              </a>
+            </li>
+            <li>
+              <a
+                class="header__nav-link"
+                href="https://github.com/gvgesanto2/microverse-soccer-players"
+                rel="noopener noreferrer"
+                target="__blank"
+              >
+                source code
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <div
+          class="header__hamburger-container"
+        >
+          <div
+            class="hamburger-menu "
+            data-testid="hamburger-menu"
+          >
+            <button
+              aria-label="hamburger button"
+              class="hamburger-btn "
+              type="button"
+            >
+              <span
+                class="hamburger-btn__icon"
+              >
+                 
+              </span>
+            </button>
+            <div
+              class="hamburger-menu__background"
+            >
+               
+            </div>
+            <nav
+              class="hamburger-menu__nav"
+            >
+              <ul
+                class="hamburger-menu__nav-list"
+              >
+                <li>
+                  <a
+                    class="hamburger-menu__link"
+                    href="/"
+                  >
+                    <span>
+                      01
+                    </span>
+                    home
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="hamburger-menu__link"
+                    href="https://github.com/gvgesanto2/microverse-soccer-players"
+                    rel="noopener noreferrer"
+                    target="__blank"
+                  >
+                    <span>
+                      02
+                    </span>
+                    source code
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main
+      class="main"
+    >
+      <div
+        class="spinner spinner--md"
+      >
+        <div
+          class="spinner__content"
+        />
+      </div>
+    </main>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

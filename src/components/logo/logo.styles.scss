@@ -1,0 +1,18 @@
+.logo {
+  display: flex;
+  align-items: center;
+
+  &__img {
+    width: 8rem;
+    height: 8rem;
+    margin-right: 0.8rem;
+  }
+
+  &__title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-white);
+    -webkit-font-smoothing: antialiased;
+  }
+}

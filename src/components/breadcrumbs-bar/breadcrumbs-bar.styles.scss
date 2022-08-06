@@ -1,0 +1,35 @@
+.breadcrumbs-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 3.2rem;
+
+  &__desktop {
+    display: none;
+
+    @media only screen and (min-width: 48em) {
+      display: block;
+    }
+  }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    height: 4.2rem;
+    font-size: 1.6rem;
+    color: inherit;
+    background-color: var(--color-grey-775);
+    border: 0;
+    border-radius: 0.8rem;
+    padding: 0 1.2rem;
+    transition: all 0.2s;
+
+    span {
+      margin-left: 0.4rem;
+    }
+
+    &:hover {
+      background-color: var(--color-grey-700);
+    }
+  }
+}
