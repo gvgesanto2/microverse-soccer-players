@@ -4,12 +4,8 @@ import axios from 'axios';
 const API_INDEX_STORAGE_KEY = 'key-index';
 
 const apiKeys = [
-  'da939aad2bbfeb89aceff7bb51f12010',
-  '2c5ced4900e9aa4d583e218d814cfbc4',
-  'd59e4f6c58f7a3be75489d2e3cf6b6da',
-  '61755956a03583dbec78e118c9d5fb77',
-  '079a852733bca06c231fa32314cb357b',
-  '8280f63e29d91dedc4a27eb4455cc57a',
+  '4bad7b09643347d9b61fc0c7c7d772a1',
+  'd39238618b0fa72005084d2563b2972b',
 ];
 
 export const api = axios.create({
